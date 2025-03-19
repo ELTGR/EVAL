@@ -1,5 +1,7 @@
 
 <?php 
+
+    $nom_inscription = isset($_POST['nom_inscription']) ? $_POST['nom_inscription']: FALSE;
 #fonction qui permet de tirer un personnage adverse aléatoirement au debut d'un combat
     function tirage_aleatoire_du_personne_adverse(){
 
@@ -35,8 +37,9 @@
         $j2p_puisssance = $list_puissance[$id_perso];
         $j2p_vitesse = $list_vitesse[$id_perso] ;
         $j2p_nom = $list_nom[$id_perso] ;
-        $j2p_prenom = $list_prenom[$id_perso] ;
-        $j2p = array($j2p_pv,$j2p_puisssance,$j2p_vitesse,$j2p_nom,$j2p_prenom);
+        $j2p_prenom = $list_prenom[$id_perso] 
+        ;
+        $j2p = array($j2p_pv,$j2p_puisssance,$j2p_vitesse,$j2p_nom,$j2p_prenom,$j2p_pseudo);
         return $j2p;
     }
 
@@ -46,11 +49,12 @@
         $j1p_vitesse = $j1p[2];
         $j1p_puisssance= $j1p[1];
         $j1p_pv= $j1p[0];
+        $j1p_pseudo= $j1p[5];
 
         $j2p_vitesse = $j2p[2];
         $j2p_puisssance= $j2p[1];
         $j2p_pv= $j2p[0];
-
+        $j2p_pseudo= $j2p[5];
 
         $j1p_win = FALSE;
         $j2p_win = FALSE;
@@ -80,13 +84,15 @@
 
     
         if ($j1p_win){
-            return $j1p_nom . $j1p_prenom;
+            include("pages/win.php");
         }
         if ($j2p_win){
-            return $j2p_nom . $j2p_prenom;
+            include("pages/lose.php");
         }
+        
     }
     $j2p= tirage_aleatoire_du_personne_adverse();
+
     $j1p = $j2p;
     game($j1p,$j2p)
 
