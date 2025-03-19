@@ -23,21 +23,29 @@ function tirage_aleatoire_du_personne_adverse(){
     $max_id = count($list_pseudo);
     $id_perso = rand(0, $max_id)
 
-    $pgn_pseudo= $list_pseudo[$id_perso] 
-    $pgn_pv =  $list_points_de_vie[$id_perso]
-    $pgn_puisssance = $list_puissance[$id_perso]
-    $pgn_vitesse = $list_vitesse[$id_perso] 
-    $pgn_nom = $list_nom[$id_perso] 
-    $pgn_prenom = $list_prenom[$id_perso] 
+    $j2p_pseudo= $list_pseudo[$id_perso] 
+    $j2p_pv =  $list_points_de_vie[$id_perso]
+    $j2p_puisssance = $list_puissance[$id_perso]
+    $j2p_vitesse = $list_vitesse[$id_perso] 
+    $j2p_nom = $list_nom[$id_perso] 
+    $j2p_prenom = $list_prenom[$id_perso] 
 
-    return  $pgn_pv,$pgn_puisssance,$pgn_vitesse,$pgn_nom,$pgn_prenom
+    return  $j2p_pv,$j2p_puisssance,$j2p_vitesse,$j2p_nom,$j2p_prenom
 }
 
-$pgn_pv,$pgn_puisssance,$pgn_vitesse,$pgn_nom,$pgn_prenom = tirage_aleatoire_du_personne_adverse()
+$j2p_pv,$j2p_puisssance,$j2p_vitesse,$j2p_nom,$j2p_prenom = tirage_aleatoire_du_personne_adverse()
 
-function game(){
+function game($j1p_pv,$j1p_puisssance,$j1p_vitesse,$j1p_nom,$j1p_prenom,
+              $j2p_pv,$j2p_puisssance,$j2p_vitesse,$j2p_nom,$j2p_prenom,){
+            
+    while($j1p_pv>0 && $j2p_pv>0){
+
+        $j1_v_tour = rand(0, $j1p_vitesse)
+        $j2_v_tour =rand(0, $j2p_vitesse)
+        if ($j1_v_tour >$j2_v_tour)
 
 
+    }
 }
 ?>
 
