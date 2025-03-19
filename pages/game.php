@@ -52,8 +52,8 @@
         $j2p_pv= $j2p[0];
 
 
-        $j1_win = FALSE;
-        $j2_win = FALSE;
+        $j1p_win = FALSE;
+        $j2p_win = FALSE;
 
         $j1_vitesse_tour = rand(0, $j1p_vitesse)
         $j2_vitesse_tour =rand(0, $j2p_vitesse)
@@ -62,22 +62,23 @@
         $j2_puissance_tour =rand(0, $j2p_puisssance)
 
         if ($j1_vitesse_tour >$j2_vitesse_tour){
-
+            
             $j2p_pv = $j2p_pv - $j1_puissance_tour;
-            if($j2p_pv <= 0 ){$j1_win = True;}
+            if($j2p_pv <= 0 ){$j1p_win = True;}
 
+            $j1p_pv = $j1p_pv - $j2_puissance_tour;
+            if($j1p_pv <= 0 ){$j2p_win = True;}
         }
         else {
+            $j1p_pv = $j1p_pv - $j2_puissance_tour;
+            if($j1p_pv <= 0 ){$j2p_win = True;}
 
-
+            $j2p_pv = $j2p_pv - $j1_puissance_tour;
+            if($j2p_pv <= 0 ){$j1p_win = True;}
         }
 
 
-    }
-
-
-}
-
+    
         if ($j1_win){
             return $j1p_nom . $j1p_prenom;
         }
