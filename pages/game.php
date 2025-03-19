@@ -36,18 +36,20 @@
         $j2p_vitesse = $list_vitesse[$id_perso] ;
         $j2p_nom = $list_nom[$id_perso] ;
         $j2p_prenom = $list_prenom[$id_perso] ;
-        $j2p = array(" $j2p_pv,$j2p_puisssance,$j2p_vitesse,$j2p_nom,$j2p_prenom");
+        $j2p = array($j2p_pv,$j2p_puisssance,$j2p_vitesse,$j2p_nom,$j2p_prenom);
         return $j2p;
     }
 
 
     function game($j1p,$j2p){
-        $j1p_vitesse
-        $j1p_puisssance
+        
+        $j1p_vitesse = $j1p[2];
+        $j1p_puisssance= $j1p[1];
+        $j1p_pv= $j1p[0];
 
-        $j1p_vitesse
-        $j1p_puisssance
-        $j2p_pv
+        $j2p_vitesse = $j2p[2];
+        $j2p_puisssance= $j2p[1];
+        $j2p_pv= $j2p[0];
 
 
         $j1_win = FALSE;
@@ -59,7 +61,7 @@
         $j1_puissance_tour = rand(0, $j1p_puisssance);
         $j2_puissance_tour =rand(0, $j2p_puisssance);
 
-        if ($j1_v_tour >$j2_v_tour){
+        if ($j1_vitesse_tour >$j2_vitesse_tour){
 
             $j2p_pv = $j2p_pv - $j1_puissance_tour;
             if($j2p_pv <= 0 ){$j1_win = True;}
