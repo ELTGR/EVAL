@@ -122,7 +122,7 @@
 <body>
 <!-- ===================== FIN DE LA PARTIE INSCRIPTION CONNEX ET COOKIES===============-->
 <!--==============header==============-->
-<?php include("header.php");?>
+<?php include("pages/header.php");?>
 <!--==============header==============-->
 <!-- ===================== DEBUT PARTIE LOAD PAGE ECT===============-->
 <?php
@@ -132,13 +132,13 @@
     #Si la personne essais de se connecer a une pages via l'url
     $page = isset($_GET['page']) ? $_GET['page']: 0 ;
     #on ajoute un prefix et surfixe
-    $pagePath = $page.".php";
+    $pagePath = "pages/".$page.".php";
     #==============load page via ulr==============
 
     #==============load page en fonction de la page/cookie/ect==============
     #si on vient d'effectuer l'inscir/connex de la personne alors on laod la page principal
     if($_connect){
-        $pagePath = "game.php";
+        $pagePath = "pages/game.php";
         include($pagePath);
     }
     # si la personne rentre une page qui hesite et que c'est cookies sont ok alors on laod
@@ -147,16 +147,16 @@
     } 
     # si la page n'est pas bonne mais les cookies oui alors page principal
     elseif ($cookie_ok) {
-        $pagePath = "classroom.php";
+        $pagePath = "pages/game.php";
         include($pagePath);
     }
     # si la page n'est pas bonne et cookies aussi, alors login page
     else{
-        include("login.php");
+        include("pages/login.php");
     }
 ?>
 </body>
 <!--==============my_footer==============-->
-<?php include("footer.php");?>
+<?php include("pages/footer.php");?>
 <!--==============my_footer==============-->
 </html>
