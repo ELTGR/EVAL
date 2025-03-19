@@ -106,6 +106,16 @@ function game($j1p_pv,$j1p_puisssance,$j1p_vitesse,$j1p_nom,$j1p_prenom,
         <br></br>
         <br></br>
         <div class="fighters">
+            <form action="game.php" method="post">
+                <select class="my_button" name="Boxeur" size="1">
+                <option value="monday">lundi
+                <option value="tuesday"> mardi
+                <option value="wednesday"> mercredi
+                <option value="thursday"> jeudi
+                <option value="friday"> vendredi
+                </select>
+                <input class="my_button" type="submit" value="Valider" />
+            </form>
             <img class="fighter" src="../images/fighter-red.jpg" alt="fighter-red.jpg"></img>
             <span class="space"></span>
             <img class="fighter" src="../images/fighter-red.jpg" alt="fighter-red.jpg"></img>
