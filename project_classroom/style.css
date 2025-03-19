@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'chalk';
+    src: url('../fonts/Chalk-Board.ttf');
+}
+
+body {
+    background-image: url('images/fond.jpg');
+    background-repeat: repeat;
+    font-family: chalk;
+    color: white;
+}
+
+header {
+    width: 1250px;
+    margin: auto;
+    padding: 0;
+    display: flex;
+    justify-items: center;
+}
+
+footer {
+    width: auto;
+    height: auto;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-text_index {
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.my_button{
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 100%;
+    text-align: center;
+    font-family: chalk;
+    color: white;
+    border: none;
+    padding: 5px;
+}
+
+.my_button:hover{
+    background-color: rgba(0, 0, 0, 0.5);
+}
