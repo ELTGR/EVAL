@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'chalk';
+    src: url('../fonts/Minecraft.ttf');
+}
+
+header {
+    width: 1250px;
+    margin: auto;
+    padding: 0;
+    display: flex;
+    justify-items: center;
+}
+
+.logo {
+
+}
+
+.button {
+
+}
+
+.connection {
+
+}
