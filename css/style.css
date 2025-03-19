@@ -12,14 +12,17 @@ body {
 header {
     background-color: rgba(100, 50, 50);
     height: 50px;
-    margin: auto;
     padding: 0;
-    display: flex;
-    justify-items: center;
+}
+
+main {
+    height-min: 500px;
 }
 
 footer {
     background-color: rgba(100, 50, 50);
+    height: 50px;
+    padding: 0;
 }
 
 .logo {
