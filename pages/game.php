@@ -77,24 +77,26 @@
             $j2p_pv = $j2p_pv - $j1_puissance_tour;
             echo "pv J2 :".$j2p_pv.".\n";
             if($j2p_pv <= 0 ){$j1p_win = True;echo "J2 : MORT.\n";}
-
+            else{
             $j1p_pv = $j1p_pv - $j2_puissance_tour;
             echo "pv J1 :".$j1p_pv.".\n";
-            if($j1p_pv <= 0 ){$j2p_win = True;echo "J1 : MORT.\n";}
+            if($j1p_pv <= 0 ){$j2p_win = True;echo "J1 : MORT.\n";}}
         }
+
         else {
 
             echo "J2 joue en premier.\n";
             $j1p_pv = $j1p_pv - $j2_puissance_tour;
             echo "pv J1 :".$j1p_pv.".\n";
             if($j1p_pv <= 0 ){$j2p_win = True;echo "J1 : MORT.\n";}
-
+            else {
             $j2p_pv = $j2p_pv - $j1_puissance_tour;
             echo "pv J2 :".$j2p_pv.".\n";
             if($j2p_pv <= 0 ){$j1p_win = True;echo "J2 : MORT.\n";}
-        }
+            }
+        }}
         
-    }
+    
     $j2p= tirage_aleatoire_du_personne_adverse();
 
     $j1p = $j2p;
