@@ -134,7 +134,7 @@
         <br></br>
         <br></br>
         <div class="fighters">
-            <form action="index.php" method="post">
+            <form action="" method="post">
                 <select class="my_button" name="Boxeur" size="1">
                 <option value="0"> Bastien
                 <option value="1"> Grael
