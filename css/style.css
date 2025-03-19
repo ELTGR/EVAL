@@ -36,3 +36,15 @@ footer {
 .connection {
 
 }
+
+.lose {
+    font-size: 200px;
+    color: red;
+    text-align: center;
+}
+
+.win {
+    font-size: 200px;
+    color: green;
+    text-align: center;
+}
