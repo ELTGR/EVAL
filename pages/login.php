@@ -4,7 +4,7 @@
         <form class="inputs" action="index.php" method="post">
             <input class="my_button" type="text" name="pseudo_connexion" placeholder="Pseudo" required>
             <input class="my_button" type="password" name="password_connexion" placeholder="Mot de passe" required>
-            <button type="submit" name ="connexion"  value ="1">Se connecter</button>
+            <button type="my_button" name ="connexion"  value ="1">Se connecter</button>
         </form>
     </div>
     <div class="login">
@@ -15,7 +15,7 @@
             <input class="my_button" type="text" name="genre_inscription" placeholder="Homme/Femme" required>
             <input class="my_button" type="email" name="email_inscription" placeholder="Email" required>
             <input class="my_button" type="password" name="password_inscription" placeholder="Mot de passe" required>
-            <button type="submit" name ="inscription"  value ="1">S'inscrire</button>
+            <button type="my_button" name ="inscription"  value ="1">S'inscrire</button>
         </form>
     </div>
 </main>

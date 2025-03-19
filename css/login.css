@@ -1,0 +1,17 @@
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.my_button{
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 100%;
+    text-align: center;
+    font-family: pixel;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px;
+    margin:20px;
+}
