@@ -7,7 +7,7 @@
         if($user_db->connect_errno){
             die("connexion a échoué : " . $user_db->connect_error);
         }
-        
+
         $sql_get_personnage = "SELECT * FROM `personnages`;";
         echo $sql_get_personnage;
         $personnage_data = $user_db->query($sql_get_personnage);
@@ -55,30 +55,29 @@
         $j1_win = FALSE;
         $j2_win = FALSE;
 
-        $j1_vitesse_tour = rand(0, $j1p_vitesse);
-        $j2_vitesse_tour =rand(0, $j2p_vitesse);
+        $j1_vitesse_tour = rand(0, $j1p_vitesse)
+        $j2_vitesse_tour =rand(0, $j2p_vitesse)
 
-        $j1_puissance_tour = rand(0, $j1p_puisssance);
-        $j2_puissance_tour =rand(0, $j2p_puisssance);
+        $j1_puissance_tour = rand(0, $j1p_puisssance)
+        $j2_puissance_tour =rand(0, $j2p_puisssance)
 
         if ($j1_vitesse_tour >$j2_vitesse_tour){
 
             $j2p_pv = $j2p_pv - $j1_puissance_tour;
             if($j2p_pv <= 0 ){$j1_win = True;}
 
-            $j1p_pv = $j1p_pv - $j2_puissance_tour;
-            if($j1p_pv <= 0 ){$j2_win = True;}
         }
         else {
-            $j1p_pv = $j1p_pv - $j2_puissance_tour;
-            if($j1p_pv <= 0 ){$j2_win = True;}
 
-            $j2p_pv = $j2p_pv - $j1_puissance_tour;
-            if($j2p_pv <= 0 ){$j1_win = True;}
+
         }
 
 
-        
+    }
+
+
+}
+
         if ($j1_win){
             return $j1p_nom . $j1p_prenom;
         }
@@ -121,7 +120,7 @@
         <br></br>
         <br></br>
         <div class="fighters">
-            <form action="game.php" method="post">
+            <form action="index.php" method="post">
                 <select class="my_button" name="Boxeur" size="1">
                 <option value="0"> Bastien
                 <option value="1"> Grael
