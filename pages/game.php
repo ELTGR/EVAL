@@ -80,15 +80,6 @@
             $j2p_pv = $j2p_pv - $j1_puissance_tour;
             if($j2p_pv <= 0 ){$j1p_win = True;}
         }
-
-
-    
-        if ($j1p_win){
-            include("pages/win.php");
-        }
-        if ($j2p_win){
-            include("pages/lose.php");
-        }
         
     }
     $j2p= tirage_aleatoire_du_personne_adverse();
@@ -103,6 +94,7 @@
 <div class="game">
     <main>
         <br></br>
+        <p class="report"> Tour 1</p>
         <form class="dices" action="index.php" method="post">
             <button class="dice" type="DICE_CRIT"></button>
             <button class="dice" type="DICE_DEF"></button>
