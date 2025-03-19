@@ -94,7 +94,7 @@
                 
                 #request SQL pour insert notre nouvel utilisateur à la base de données
                 $sql_inscription = "INSERT INTO utilisateurs (pseudo, mdp, nom, prenom, genre, email) VALUES (\"$pseudo_inscription\", \"$password_inscription\",\"$nom_inscription\",\"$prenom_inscription\",\"$genre_inscription\", \"$email_inscription\");";
-                echo "sql_inscription".$sql_inscription;
+                #echo "sql_inscription".$sql_inscription;
                 $user_db->query($sql_inscription);
 
                 #Création des cookies
