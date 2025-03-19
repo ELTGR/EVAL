@@ -23,7 +23,7 @@
     while ($row = mysqli_fetch_assoc($all_data)) {
         array_push($list_pseudo, $row['pseudo']);
         array_push($list_email, $row['email']);
-        array_push($list_password, $row['password']);
+        array_push($list_password, $row['mdp']);
     }
 
     #Je crée les noms qui seront utilisé pour les cookies
@@ -51,8 +51,8 @@
                 if ($list_pseudo[$i] == $pseudo_connexion && $list_password[$i] == $password_connexion) {
                     #si mdp et pseudo correspond alors connect == TRUE et on crée nos cookies 
                     $_connect = TRUE;
-                    setcookie($nom_pseudo, $pseudo_connexion, $duree,"/");
-                    setcookie($nom_password, $password_connexion, $duree,"/");
+                    setcookie($cookie_pseudo, $pseudo_connexion, $duree,"/");
+                    setcookie($cookie_password, $password_connexion, $duree,"/");
                 }
             }
         }
@@ -64,15 +64,15 @@
 
         
         $password_inscription = isset($_POST['password_inscription']) ? hash("sha512",($_POST['password_inscription'])): FALSE ;
-        $nom_inscription = isset($_POST['nom_inscription']) ? $_POST['password_inscription']: FALSE;
-        $prenom_inscription = isset($_POST['prenom_inscription']) ? $_POST['password_inscription']: FALSE;
-        $genre_inscription = isset($_POST['nom_inscription']) ? $_POST['password_inscription']: FALSE;
+        $nom_inscription = isset($_POST['nom_inscription']) ? $_POST['nom_inscription']: FALSE;
+        $prenom_inscription = isset($_POST['prenom_inscription']) ? $_POST['prenom_inscription']: FALSE;
+        $genre_inscription = isset($_POST['genre_inscription']) ? $_POST['genre_inscription']: FALSE;
         $email_inscription = isset($_POST['email_inscription']) ? $_POST['email_inscription']: FALSE ;
-        
+        if($genre_inscription == "Homme" ){$genre_inscription = 1 ;}elseif($genre_inscription == "Femme" ){$genre_inscription = 2; }else{$genre_inscription = FALSE ;}
         if($password_inscription && $nom_inscription &&  $prenom_inscription && $genre_inscription && $email_inscription ){
 
             #creation du pseudo
-            $pseudo_inscription = $prenom_inscription[0] + $nom_inscription;
+            $pseudo_inscription = $prenom_inscription[0] . $nom_inscription;
 
             #on verifie si le pseudo n'est pas déja dans la base de données
             $already_in = FALSE;
@@ -85,14 +85,17 @@
                 }
             # Si la personne est bien absente de la base de donnée alors on precede à son insertion
             if(!$already_in){
+
+                
                 #request SQL pour insert notre nouvel utilisateur à la base de données
-                $sql_inscription = "INSERT INTO utilisateurs (pseudo, mdp, nom, prenom, genre, email) VALUES (\"$pseudo_inscription\", \"$password_inscription\",\"$nom_inscription\",\"$prenom_inscription\",\"$genre_inscription\", \"$email_inscription\", \"$password_inscription\");";
+                $sql_inscription = "INSERT INTO utilisateurs (pseudo, mdp, nom, prenom, genre, email) VALUES (\"$pseudo_inscription\", \"$password_inscription\",\"$nom_inscription\",\"$prenom_inscription\",\"$genre_inscription\", \"$email_inscription\");";
+                echo "sql_inscription".$sql_inscription;
                 $user_db->query($sql_inscription);
 
                 #Création des cookies
                 $duree = time()+3600;
-                setcookie($nom_pseudo, $pseudo_inscription, $duree,"/");
-                setcookie($nom_password, $password_inscription, $duree,"/");
+                setcookie($cookie_pseudo, $pseudo_inscription, $duree,"/");
+                setcookie($cookie_password, $password_inscription, $duree,"/");
                 $_connect = True ;
                 }
 
