@@ -55,11 +55,11 @@
         $j1p_win = FALSE;
         $j2p_win = FALSE;
 
-        $j1_vitesse_tour = rand(0, $j1p_vitesse)
-        $j2_vitesse_tour =rand(0, $j2p_vitesse)
+        $j1_vitesse_tour = rand(0, $j1p_vitesse);
+        $j2_vitesse_tour =rand(0, $j2p_vitesse);
 
-        $j1_puissance_tour = rand(0, $j1p_puisssance)
-        $j2_puissance_tour =rand(0, $j2p_puisssance)
+        $j1_puissance_tour = rand(0, $j1p_puisssance);
+        $j2_puissance_tour =rand(0, $j2p_puisssance);
 
         if ($j1_vitesse_tour >$j2_vitesse_tour){
             
@@ -79,10 +79,10 @@
 
 
     
-        if ($j1_win){
+        if ($j1p_win){
             return $j1p_nom . $j1p_prenom;
         }
-        if ($j2_win){
+        if ($j2p_win){
             return $j2p_nom . $j2p_prenom;
         }
     }
