@@ -40,9 +40,20 @@ function game($j1p_pv,$j1p_puisssance,$j1p_vitesse,$j1p_nom,$j1p_prenom,
             
     while($j1p_pv>0 && $j2p_pv>0){
 
-        $j1_v_tour = rand(0, $j1p_vitesse)
-        $j2_v_tour =rand(0, $j2p_vitesse)
-        if ($j1_v_tour >$j2_v_tour)
+        $j1_vitesse_tour = rand(0, $j1p_vitesse)
+        $j2_vitesse_tour =rand(0, $j2p_vitesse)
+
+        $j1_puissance_tour = rand(0, $j1p_puisssance)
+        $j2_puissance_tour =rand(0, $j2p_puisssance)
+
+        if ($j1_v_tour >$j2_v_tour){
+            $j2p_pv = $j2p_pv - 
+
+        }
+        else {
+
+
+        }
 
 
     }
