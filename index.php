@@ -13,7 +13,7 @@
     }
 
     #on recupere la database des users avant car on en aura besion dans les deux cas 
-    $sql_utilisateurs_data = "SELECT * password FROM utilisateurs;";
+    $sql_utilisateurs_data = "SELECT * FROM utilisateurs;";
     $all_data = $user_db->query($sql_utilisateurs_data);
 
     #on mets les varaibles dans des list
@@ -72,7 +72,7 @@
         if($password_inscription && $nom_inscription &&  $prenom_inscription && $genre_inscription && $email_inscription ){
 
             #creation du pseudo
-            $pseudo_inscription = $prenom_inscription[0] + $nom_inscription
+            $pseudo_inscription = $prenom_inscription[0] + $nom_inscription;
 
             #on verifie si le pseudo n'est pas déja dans la base de données
             $already_in = FALSE;
@@ -86,7 +86,7 @@
             # Si la personne est bien absente de la base de donnée alors on precede à son insertion
             if(!$already_in){
                 #request SQL pour insert notre nouvel utilisateur à la base de données
-                $sql_inscription = "INSERT INTO user (pseudo, mdp, nom, prenom, genre, email) VALUES (\"$id\", \"$pseudo_inscription\", \"$email_inscription\", \"$password_inscription\");";
+                $sql_inscription = "INSERT INTO utilisateurs (pseudo, mdp, nom, prenom, genre, email) VALUES (\"$pseudo_inscription\", \"$password_inscription\",\"$nom_inscription\",\"$prenom_inscription\",\"$genre_inscription\", \"$email_inscription\", \"$password_inscription\");";
                 $user_db->query($sql_inscription);
 
                 #Création des cookies
@@ -122,7 +122,7 @@
 <body>
 <!-- ===================== FIN DE LA PARTIE INSCRIPTION CONNEX ET COOKIES===============-->
 <!--==============header==============-->
-<?php include("header_footer/my_header.php");?>
+<?php include("header.php");?>
 <!--==============header==============-->
 <!-- ===================== DEBUT PARTIE LOAD PAGE ECT===============-->
 <?php
@@ -132,13 +132,13 @@
     #Si la personne essais de se connecer a une pages via l'url
     $page = isset($_GET['page']) ? $_GET['page']: 0 ;
     #on ajoute un prefix et surfixe
-    $pagePath = "pages/".$page.".php";
+    $pagePath = $page.".php";
     #==============load page via ulr==============
 
     #==============load page en fonction de la page/cookie/ect==============
     #si on vient d'effectuer l'inscir/connex de la personne alors on laod la page principal
     if($_connect){
-        $pagePath = "pages/game.php";
+        $pagePath = "game.php";
         include($pagePath);
     }
     # si la personne rentre une page qui hesite et que c'est cookies sont ok alors on laod
@@ -147,16 +147,16 @@
     } 
     # si la page n'est pas bonne mais les cookies oui alors page principal
     elseif ($cookie_ok) {
-        $pagePath = "pages/classroom.php";
+        $pagePath = "classroom.php";
         include($pagePath);
     }
     # si la page n'est pas bonne et cookies aussi, alors login page
     else{
-        include("pages/login.php");
+        include("login.php");
     }
 ?>
 </body>
 <!--==============my_footer==============-->
-<?php include("header_footer/my_footer.php");?>
+<?php include("footer.php");?>
 <!--==============my_footer==============-->
 </html>
