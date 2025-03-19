@@ -2,7 +2,12 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
- 
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="BOXE!" content="width=device-width, initial-scale=1.0">
+    <title>BOXE!</title>
 </head>
 <?php
 

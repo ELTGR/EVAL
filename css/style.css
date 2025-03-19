@@ -1,14 +1,25 @@
 @font-face {
-    font-family: 'chalk';
-    src: url('../fonts/Minecraft.ttf');
+    font-family: 'pixel';
+    src: url('../font/Minecraft.ttf');
+}
+
+body {
+    background-color: rgba(50, 50, 50);
+    color: white;
+    font-family: pixel;
 }
 
 header {
-    width: 1250px;
+    background-color: rgba(100, 50, 50);
+    height: 50px;
     margin: auto;
     padding: 0;
     display: flex;
     justify-items: center;
+}
+
+footer {
+    background-color: rgba(100, 50, 50);
 }
 
 .logo {
