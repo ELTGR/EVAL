@@ -1,14 +1,22 @@
 
 <?php 
-
-    $nom_inscription = isset($_POST['nom_inscription']) ? $_POST['nom_inscription']: FALSE;
-#fonction qui permet de tirer un personnage adverse aléatoirement au debut d'un combat
-    function tirage_aleatoire_du_personne_adverse(){
-
-        $user_db= new mysqli("localhost", "root", "", "data_base");
-        if($user_db->connect_errno){
+    $user_db= new mysqli("localhost", "root", "", "data_base");
+    if($user_db->connect_errno){
             die("connexion a échoué : " . $user_db->connect_error);
         }
+
+    #on récupere le personnage choisi grace au bouton
+    $id_jp1 = isset($_POST['Boxeur']) ? $_POST['Boxeur']: 0;
+    $sql_get_j1p = "SELECT * FROM `personnages`WHERE id = $id_jp1;";
+    $j1p = $user_db->query($sql_get_j1p);
+
+#fonction qui permet de tirer un personnage adverse aléatoirement au debut d'un combat
+    function tirage_aleatoire_du_personne_adverse(){
+        $user_db= new mysqli("localhost", "root", "", "data_base");
+        if($user_db->connect_errno){
+                die("connexion a échoué : " . $user_db->connect_error);
+            }
+
 
         $sql_get_personnage = "SELECT * FROM `personnages`;";
         echo $sql_get_personnage;
@@ -39,10 +47,9 @@
         $j2p_nom = $list_nom[$id_perso] ;
         $j2p_prenom = $list_prenom[$id_perso] 
         ;
-        $j2p = array($j2p_pv,$j2p_puisssance,$j2p_vitesse,$j2p_nom,$j2p_prenom,$j2p_pseudo);
+        $j2p = array("$j2p_pv","$j2p_puisssance","$j2p_vitesse","$j2p_nom","$j2p_prenom","$j2p_pseudo");
         return $j2p;
     }
-
 
     function game($j1p,$j2p){
         
@@ -66,19 +73,25 @@
         $j2_puissance_tour =rand(0, $j2p_puisssance);
 
         if ($j1_vitesse_tour >$j2_vitesse_tour){
-            
+            echo "J1 joue en premier.\n";
             $j2p_pv = $j2p_pv - $j1_puissance_tour;
-            if($j2p_pv <= 0 ){$j1p_win = True;}
+            echo "pv J2 :".$j2p_pv.".\n";
+            if($j2p_pv <= 0 ){$j1p_win = True;echo "J2 : MORT.\n";}
 
             $j1p_pv = $j1p_pv - $j2_puissance_tour;
-            if($j1p_pv <= 0 ){$j2p_win = True;}
+            echo "pv J1 :".$j1p_pv.".\n";
+            if($j1p_pv <= 0 ){$j2p_win = True;echo "J1 : MORT.\n";}
         }
         else {
+
+            echo "J2 joue en premier.\n";
             $j1p_pv = $j1p_pv - $j2_puissance_tour;
-            if($j1p_pv <= 0 ){$j2p_win = True;}
+            echo "pv J1 :".$j1p_pv.".\n";
+            if($j1p_pv <= 0 ){$j2p_win = True;echo "J1 : MORT.\n";}
 
             $j2p_pv = $j2p_pv - $j1_puissance_tour;
-            if($j2p_pv <= 0 ){$j1p_win = True;}
+            echo "pv J2 :".$j2p_pv.".\n";
+            if($j2p_pv <= 0 ){$j1p_win = True;echo "J2 : MORT.\n";}
         }
 
 
